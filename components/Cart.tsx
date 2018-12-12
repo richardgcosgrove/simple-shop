@@ -1,30 +1,15 @@
 import React, {Component} from 'react';
-// import {Query} from 'react-apollo';
-import gql from 'graphql-tag';
 import styled from 'styled-components';
 import CartItem from './CartItem';
 import formatMoney from '../lib/formatMoney';
-import PriceTag from './styles/PriceTag';
-// import Pagination from './Pagination';
-// import {perPage} from '../config';
-
-// const ALL_ITEMS_QUERY = gql `
-//   query ALL_ITEMS_QUERY($skip: Int = 0, $first: Int = ${perPage}) {
-//     items(first: $first, skip: $skip, orderBy: createdAt_DESC) {
-//       id
-//       title
-//       price
-//       description
-//       image
-//       largeImage
-//     }
-//   }
-// `;
+import { ShopContext } from '../pages/shop';
 
 const Container = styled.div`
   border: 5px solid black;
   padding: 30px 10px;
   margin-bottom: 10px;
+  margin-right: 10px;
+  width: 300px;
 `;
 
 const Total = styled.div `
@@ -44,7 +29,12 @@ const CartList = styled.div `
   max-width: ${props => props.theme.maxWidth};
 `;
 
-const TotalPriceTag = styled(PriceTag)`
+const TotalPriceTag = styled.p`
+  font-size: 2rem;
+  justify-self: right;
+  align-self: flex-end;
+  margin-top: auto;
+  padding-right: 10px;
   margin-left: auto;
   padding-right: 10px;
 `;
@@ -52,22 +42,27 @@ const TotalPriceTag = styled(PriceTag)`
 class Items extends Component {
   render() {
     return (
-      <Container>
-        {/* <CartList>
-          {this.data
-            .items
-            .map(item => <CartItem key={item.id} item={item}/>)}
-        </CartList>
-        <Total>
-            <span>Total</span><TotalPriceTag>{formatMoney(this.data.items
-                .map(({price}) => price)
-                .reduce((current, next) => current + next, 0))
-            }</TotalPriceTag>
-        </Total> */}
-      </Container>
+      <ShopContext.Consumer>
+        {value => (
+          <Container>
+            <CartList>
+              {value
+                .state
+                .items
+                .map(item => <CartItem key={item.id} item={item}/>)}
+            </CartList>
+            <Total>
+                <span>Total</span><TotalPriceTag>{formatMoney(value.state.items
+                    .map(({price}) => price)
+                    .reduce((current, next) => current + next, 0))
+                }</TotalPriceTag>
+            </Total>
+          </Container>
+          )
+        }
+      </ShopContext.Consumer>
     );
   }
 }
 
 export default Items;
-// export {ALL_ITEMS_QUERY};

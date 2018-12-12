@@ -7,6 +7,7 @@ import BaseRow from './styles/Row';
 import Column from './styles/Column';
 import BaseTitle from './styles/Title';
 import BasePriceTag from './styles/PriceTag';
+import { ShopContext } from '../pages/shop';
 
 const ItemStyles = styled(BaseItemStyles)`
   img {
@@ -53,24 +54,28 @@ class Item extends Component<ItemIProps, any> {
   render() {
     const item = this.props.item;
     return (
-      <ItemStyles>
-        <Row>
-          {item.image && <img src={item.image} alt={item.title}  data-cy="image
-          "/>}
-          <Column>
-            <Title data-cy="title">{item.title}</Title>
-            <Row data-cy="description">
-              <Drop data-cy="drop">"</Drop>
-              <Description>{item.description}</Description>
+      <ShopContext.Consumer>
+        {value => (
+          <ItemStyles>
+            <Row>
+              {item.image && <img src={item.image} alt={item.title}  data-cy="image
+              "/>}
+              <Column>
+                <Title data-cy="title">{item.title}</Title>
+                <Row data-cy="description">
+                  <Drop data-cy="drop">"</Drop>
+                  <Description>{item.description}</Description>
+                </Row>
+              </Column>
             </Row>
-          </Column>
-        </Row>
 
-        <Row className="bottom">
-          <button className="primary">Add To Cart</button>
-          <PriceTag>{formatMoney(item.price)}</PriceTag>
-        </Row>
-      </ItemStyles>
+            <Row className="bottom">
+              <button className="primary" onClick={() => { value.actions.addItem(item)}}>Add To Cart</button>
+              <PriceTag>{formatMoney(item.price)}</PriceTag>
+            </Row>
+          </ItemStyles>
+        )}
+      </ShopContext.Consumer>
     );
   }
 }

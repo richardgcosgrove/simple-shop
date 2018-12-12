@@ -7,6 +7,9 @@ import PriceTag from './styles/PriceTag';
 import Row from './styles/Row';
 import Column from './styles/Column';
 import ItemIProps from './props/ItemIProps';
+import { ShopContext } from '../pages/shop';
+
+
 
 const DeleteItem = styled.button`
   background-color: #FFE0E0;
@@ -15,25 +18,30 @@ const DeleteItem = styled.button`
   }
 `;
 
+
 class CartItem extends Component<ItemIProps, any> {
 
   render() {
     const item = this.props.item;
     return (
-      <ItemStyles>
-        <Row>
-          <Column>
-            <Title>{item.title}</Title>
+      <ShopContext.Consumer>
+        {value => (
+          <ItemStyles>
+            <Row>
+              <Column>
+                <Title>{item.title}</Title>
 
-            <PriceTag>{formatMoney(item.price)}</PriceTag>
+                <PriceTag>{formatMoney(item.price)}</PriceTag>
 
-          </Column>
-        </Row>
+              </Column>
+            </Row>
 
-        <div className="buttonList">
-          <DeleteItem id={item.id}>Delete from Cart</DeleteItem>
-        </div>
-      </ItemStyles>
+            <div className="buttonList">
+              <DeleteItem id={item.id} onClick={() => value.actions.removeItem(item)}>Delete from Cart</DeleteItem>
+            </div>
+          </ItemStyles>
+        )}
+      </ShopContext.Consumer>
     );
   }
 }

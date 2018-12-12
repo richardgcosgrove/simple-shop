@@ -1,9 +1,11 @@
 export default interface ItemIProps {
-  item : {
-    id: string;
-    description: string;
-    price: number;
-    image: string;
-    title: string;
-  }
+  item : Item
+}
+
+export interface Item {
+  id: string;
+  description: string;
+  price: number;
+  image: string;
+  title: string;
 }
