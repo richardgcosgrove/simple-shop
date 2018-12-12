@@ -25,11 +25,7 @@ npm run test
 * [Typescript] (https://github.com/Microsoft/TypeScript) - Javascript flavor used
 * [React.JS] (https://github.com/facebook/react) - Framework used
 * [Apollo] (https://github.com/ApolloAuto/apollo) - GraphQL Library used
-* [Jest] (https://github.com/facebook/jest) - Testing Library used
-
-## Created With
-* [create-react-app] (https://github.com/facebook/create-react-app) - Generated initial repo with typescript script version
-
+* [Next.JS] (https://github.com/zeit/next.js) - Router + SSR
 
 ## Authors
 
