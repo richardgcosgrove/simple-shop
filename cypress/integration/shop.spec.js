@@ -79,5 +79,14 @@ describe('shop', () => {
       });
     });
 
+    it('should switch grid layout for mobile', () => {
+      cy.get('[data-cy=items]')
+        .should('have.css', 'grid-template-columns')
+        .and('match', /^\d+px \d+px$/);
+      cy.viewport(400,700);
+      cy.get('[data-cy=items]')
+        .should('have.css', 'grid-template-columns')
+        .and('match', /^\d+px$/);
+    });
   });
 });

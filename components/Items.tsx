@@ -41,7 +41,7 @@ class Items extends Component {
               return <p>Loading...</p>;
             if (error) 
               return <p>Error: {error.message}</p>;
-            return <ItemList>
+            return <ItemList data-cy="items">
               {data
                 .items
                 .map(item => <Item key={item.id} item={item}/>)}
