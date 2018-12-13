@@ -3,7 +3,6 @@ import Items from '../components/Items';
 import Cart from '../components/Cart';
 import styled from 'styled-components';
 import BaseRow from '../components/styles/Row';
-import ShopIContext from './state/ShopIState';
 import ShopIState from './state/ShopIState';
 
 const Row = styled(BaseRow)`

@@ -29,15 +29,15 @@ class CartItem extends Component<ItemIProps, any> {
           <ItemStyles>
             <Row>
               <Column>
-                <Title>{item.title}</Title>
+                <Title data-cy="cart-item-title">{item.title}</Title>
 
-                <PriceTag>{formatMoney(item.price)}</PriceTag>
+                <PriceTag data-cy="cart-item-price">{formatMoney(item.price)}</PriceTag>
 
               </Column>
             </Row>
 
             <div className="buttonList">
-              <DeleteItem id={item.id} onClick={() => value.actions.removeItem(item)}>Delete from Cart</DeleteItem>
+              <DeleteItem id={item.id} data-cy='remove-from-cart' onClick={() => value.actions.removeItem(item)}>Delete from Cart</DeleteItem>
             </div>
           </ItemStyles>
         )}

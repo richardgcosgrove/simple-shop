@@ -26,6 +26,9 @@ const ItemList = styled.div `
   grid-gap: 60px;
   max-width: ${props => props.theme.maxWidth};
   margin: 0 auto;
+  @media screen and (max-width: 500px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 class Items extends Component {

@@ -45,14 +45,14 @@ class Items extends Component {
       <ShopContext.Consumer>
         {value => (
           <Container>
-            <CartList>
+            <CartList data-cy="cart-list">
               {value
                 .state
                 .items
-                .map(item => <CartItem key={item.id} item={item}/>)}
+                .map((item, i) => <CartItem key={`${item.id}${i}`} item={item}/>)}
             </CartList>
             <Total>
-                <span>Total</span><TotalPriceTag>{formatMoney(value.state.items
+                <span>Total</span><TotalPriceTag data-cy="total">{formatMoney(value.state.items
                     .map(({price}) => price)
                     .reduce((current, next) => current + next, 0))
                 }</TotalPriceTag>

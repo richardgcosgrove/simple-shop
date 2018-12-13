@@ -58,8 +58,7 @@ class Item extends Component<ItemIProps, any> {
         {value => (
           <ItemStyles>
             <Row>
-              {item.image && <img src={item.image} alt={item.title}  data-cy="image
-              "/>}
+              {item.image && <img src={item.image} alt={item.title}  data-cy="image"/>}
               <Column>
                 <Title data-cy="title">{item.title}</Title>
                 <Row data-cy="description">
@@ -70,7 +69,7 @@ class Item extends Component<ItemIProps, any> {
             </Row>
 
             <Row className="bottom">
-              <button className="primary" onClick={() => { value.actions.addItem(item)}}>Add To Cart</button>
+              <button className="primary" data-cy="add-to-cart" onClick={() => { value.actions.addItem(item)}}>Add To Cart</button>
               <PriceTag>{formatMoney(item.price)}</PriceTag>
             </Row>
           </ItemStyles>
