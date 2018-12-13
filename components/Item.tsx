@@ -70,7 +70,7 @@ class Item extends Component<ItemIProps, any> {
 
             <Row className="bottom">
               <button className="primary" data-cy="add-to-cart" onClick={() => { value.actions.addItem(item)}}>Add To Cart</button>
-              <PriceTag>{formatMoney(item.price)}</PriceTag>
+              <PriceTag data-cy="price">{formatMoney(item.price)}</PriceTag>
             </Row>
           </ItemStyles>
         )}
