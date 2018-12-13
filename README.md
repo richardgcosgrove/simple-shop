@@ -22,10 +22,10 @@ npm run test
 ```
 
 ## Built With
-* [Typescript] (https://github.com/Microsoft/TypeScript) - Javascript flavor used
-* [React.JS] (https://github.com/facebook/react) - Framework used
-* [Apollo] (https://github.com/ApolloAuto/apollo) - GraphQL Library used
-* [Next.JS] (https://github.com/zeit/next.js) - Router + SSR
+* [Typescript](https://github.com/Microsoft/TypeScript) - Javascript flavor used
+* [React.JS](https://github.com/facebook/react) - Framework used
+* [Apollo](https://github.com/ApolloAuto/apollo) - GraphQL Library used
+* [Next.JS](https://github.com/zeit/next.js) - Router + SSR
 
 ## Authors
 
